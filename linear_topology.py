@@ -3,11 +3,11 @@
 # -----------------------------------------------------------------------------
 # This script runs iperf tests between two hosts in a Mininet network using a
 # linear topology. The script runs the iperf test for multiple durations and
-# collects data at an interval of half a second. The results of the tests are
+# collects data at half a second interval. The results of the tests are
 # written to a textfile for later analysis.
 #
 # The script uses the Mininet library to create and start the network, and the
-# iperf command to run the tests. T
+# iperf command to run the tests.
 #
 # The script could be customized to run the iperf test multiple times for each
 # duration, and to specify the number of runs and the durations to be tested.
@@ -19,7 +19,7 @@ Performing imports for Mininet-based network simulation:
 - Mininet: Class from mininet.net module, the core of the network simulation.
 - CLI: Class from mininet.cli module to enable command line interaction within the network simulation.
 - setLogLevel: Function from mininet.log module for setting the verbosity of log messages.
-- time: Standard Python module for handling time-related tasks, such as delays.
+- time: A standard Python module for handling time-related tasks, such as delays.
 - re: Standard Python module for regular expression operations, useful for string searching and manipulation.
 '''
 from mininet.topo import Topo
@@ -58,6 +58,7 @@ def create_linear_topology():
     # Opening a file in append mode to write the results
     with open('iperf_results_10_0.5', 'a') as results_file:
         durations = [10, 20, 30, 40, 50, 60]
+        
         num_runs = 1 # We can change this value to the desired number of runs
         for i, duration in enumerate(durations):
             for j in range(num_runs):

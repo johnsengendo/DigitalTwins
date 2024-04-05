@@ -1,17 +1,3 @@
-# =============================================================================
-# Mininet Iperf Test Script
-# -----------------------------------------------------------------------------
-# This script runs iperf tests between two hosts in a Mininet network using a
-# linear topology. The script runs the iperf test for multiple durations and
-# collects data at half a second interval. The results of the tests are
-# written to a textfile for later analysis.
-#
-# The script uses the Mininet library to create and start the network, and the
-# iperf command to run the tests.
-#
-# The script could be customized to run the iperf test multiple times for each
-# duration, and to specify the number of runs and the durations to be tested.
-# =============================================================================
 
 '''
 Performing imports for Mininet-based network simulation:

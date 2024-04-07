@@ -1,12 +1,6 @@
 
 '''
 Performing imports for Mininet-based network simulation:
-- Topo: Class from mininet.topo module for creating custom network topologies.
-- Mininet: Class from mininet.net module, the core of the network simulation.
-- CLI: Class from mininet.cli module to enable command line interaction within the network simulation.
-- setLogLevel: Function from mininet.log module for setting the verbosity of log messages.
-- time: A standard Python module for handling time-related tasks, such as delays.
-- re: Standard Python module for regular expression operations, useful for string searching and manipulation.
 '''
 from mininet.topo import Topo
 from mininet.net import Mininet

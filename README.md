@@ -9,5 +9,5 @@ The repository has python scripts used to set-up network topologies in Comnetsem
    takes place between the nodes, BW is increased.
  - The [expanded_topology](https://github.com/johnsengendo/DigitalTwins/blob/main/expanded_topology.py) helps to show how the liniear network topology can be expanded to a more complex topology, which can integrate SDN capabilities.
 
-<br> A brief summary on the prediction models built is as below:
+ A brief summary on the prediction models built is as below:<br>
 [Window_size = 1](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_4seconds_ahead_(window_size%3D1).ipynb) , [Window_size = 10](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_4seconds_ahead_(window_size%3D10).ipynb) , [Window_size = 20](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_4seconds_ahead_(window_size%3D20).ipynb) These prediction scripts demonstrate how a window_size, that is; how much past information can affect how an LSTM prediction model can accurately predicts the network traffic a few seconds in the future. And, as we can see from this summary, the lower the window size, the more accurate the models can predict how much traffic will be transferred in the future.

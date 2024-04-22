@@ -1,6 +1,5 @@
 # DigitalTwins
-The repository has python scripts used to set-up network topologies in Comnetsemu and python notebooks to build traffic prediction models.
-Below is a breakdown of the scripts to sep-up topologies and different scenario.
+The repository has python scripts used to set-up network topologies in Comnetsemu and python notebooks to build traffic prediction models. Below is a breakdown of the scripts to sep-up topologies and different scenario.
  - The [Linear_topology](https://github.com/johnsengendo/DigitalTwins/blob/main/linear_topology.py) python script creates a linear topology in Mininet with two nodes and two switches in between, and in it, I simulate traffic 
    transmissions using iperf that run for varying durations of 10 seconds, 20 seconds, 30 seconds, 40 seconds, 50 seconds, and 60 seconds.
  - The [multiple_flows](https://github.com/johnsengendo/DigitalTwins/blob/main/multiple_flows.py) script creates a scenario where we have mutiple flows in the network of two nodes communicating to each other. In it, I increase the 

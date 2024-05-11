@@ -24,6 +24,26 @@ class LinearTopology(Topo):
         self.addLink(switch2, host2, cls=TCLink, loss=5)
 
 # Function to run iperf remains largely the same, we can modify it later if needed
+def run_iperf_flow(h1, h2_ip, server_port, duration, interval, results_file, bandwidth):
+    """
+    Runing iperf flow with dynamic bandwidth adjustment.
+
+    Parameters:
+        h1: Host object representing the client.
+        h2_ip: IP address of the iperf server.
+        server_port: Port number of the iperf server.
+        duration: Duration of the iperf flow in seconds.
+        interval: Time interval between periodic bandwidth reports.
+        results_file: File object to write the results to.
+        bandwidth: Initial bandwidth for the iperf flow.
+        
+    Returns:
+        None
+    """
+
+    result_file = f"/tmp/iperf_flow_{server_port}.txt"
+    h1.popen(f'iperf -c {h2_ip} -p {server_port} -i {interval} -t {duration} -b {bandwidth} -d > {result_file}', shell=True)
+    time.sleep(duration + 1)  # Waiting for the iperf process to finish
 
 def create_linear_topology():
     topo = LinearTopology()

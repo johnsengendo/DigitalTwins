@@ -19,9 +19,9 @@ class LinearTopology(Topo):
         host2 = self.addHost('h2')
 
         # Adding links between the nodes with packet loss
-        self.addLink(host1, switch1, cls=TCLink, loss=5)  # 5% packet loss
+        self.addLink(host1, switch1)  # 5% packet loss
         self.addLink(switch1, switch2, cls=TCLink, loss=5)  # Additional link between switches also with packet loss
-        self.addLink(switch2, host2, cls=TCLink, loss=5)
+        self.addLink(switch2, host2)
 
 def run_iperf_flow(h1, h2_ip, server_port, duration, interval, results_file, bandwidth):
     """

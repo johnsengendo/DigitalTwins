@@ -30,7 +30,7 @@ class LinearTopology(Topo):
         self.addLink(switch2, host2)
 
 def run_iperf_flow(h1, h2_ip, server_port, duration, interval, results_file):
-    result_file = f"/tmp/iperf_flow_{server_port}.txt"
+    result_file = f"/tmp/iperf_flow2_{server_port}.txt"
     h1.popen(f'iperf -c {h2_ip} -p {server_port} -i {interval} -t {duration} -b 10m -d > {result_file}', shell=True)
     time.sleep(duration + 1)  # Waiting for the iperf process to finish
 
@@ -74,7 +74,7 @@ def create_linear_topology():
     with open('five_flows_data', 'a') as results_file:
 
         # Configurations for each flow: duration and start delay
-        flow_configs = [(10, 0), (5, 5)]  # (duration, start_delay)
+        flow_configs = [(60, 0), (5, 5)]  # (duration, start_delay)
 
         intervals = [0.5]  # intervals at which data is captured for each duration e.g at 0.5Sec for a duration of 10
         num_runs = 3  # number or repetitions for which the iperf is run for each duration

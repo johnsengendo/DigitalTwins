@@ -1,118 +1,60 @@
-# importing mininet libraries 
 from mininet.topo import Topo
 from mininet.net import Mininet
+from mininet.node import OVSController
 from mininet.cli import CLI
 from mininet.log import setLogLevel
 import time
 import threading
-import re
-import os
 
-class LinearTopology(Topo):
-    def __init__(self):
-        Topo.__init__(self)
-
-        # Adding nodes to the topology
-        switch1 = self.addSwitch('s1')
-        switch2 = self.addSwitch('s2')
+class SimpleTopology(Topo):
+    def build(self):
+        switch = self.addSwitch('s1')
         host1 = self.addHost('h1')
         host2 = self.addHost('h2')
+        self.addLink(host1, switch)
+        self.addLink(switch, host2)
 
-        # Adding links between the nodes with bandwidth constraints
-        self.addLink(host1, switch1, bw=20)  # Bandwidth in Mbps
-        self.addLink(switch1, switch2, bw=20)
-        self.addLink(switch2, host2, bw=20)
+def run_continuous_flow(net, duration=60):
+    h1, h2 = net.get('h1'), net.get('h2')
+    h2.cmd('iperf -s -p 5001 &')  # Start a server on a background
+    output_file = "/tmp/continuous_flow_results.txt"
+    h1.cmdPrint(f'iperf -c {h2.IP()} -p 5001 -t {duration} > {output_file}')
+    print(f"Continuous flow results stored in {output_file}")
 
-def run_iperf_flow(h1, h2_ip, server_port, duration, interval, results_file, bandwidth='10m'):
-    result_file = f"/tmp/iperf_flow_{server_port}.txt"
-    h1.popen(f'iperf -c {h2_ip} -p {server_port} -i {interval} -t {duration} -b {bandwidth} -d > {result_file}', shell=True)
-    time.sleep(duration + 1)  # Waiting for the iperf process to finish
+def run_temporary_flow(net):
+    h1, h2 = net.get('h1'), net.get('h2')
+    h2.cmd('iperf -s -p 5002 &')  # Start another server on a different port
+    h1.cmdPrint('iperf -c {} -p 5002 -t 5'.format(h2.IP()))
 
-    with open(result_file, 'r') as f:
-        result = f.read()
+def run_random_flows(net):
+    import random
+    h1, h2 = net.get('h1'), net.get('h2')
+    for i in range(10):  # Number of random flows
+        duration = random.randint(1, 10)  # Duration between 1 and 10 seconds
+        port = 5003 + i  # Different port for each flow
+        h2.cmd('iperf -s -p {} &'.format(port))
+        time.sleep(random.randint(1, 5))  # Random start time delays
+        h1.cmdPrint('iperf -c {} -p {} -t {}'.format(h2.IP(), port, duration))
+        time.sleep(duration + 1)  # Wait for flow to finish
 
-    os.remove(result_file)  # Removing the temporary result file
-
-    results_file.write(f"Flow Result:\n{result}\n")
-    results_file.write("-----\n")
-
-    match = re.search(r'(\d+\.\d+)-(\d+\.\d+) sec\s+(\d+\.\d+) MBytes\s+(\d+\.\d+) Mbits/sec', result)
-    if match:
-        start_time = float(match.group(1))
-        end_time = float(match.group(2))
-        duration = end_time - start_time
-        transferred_data = float(match.group(3))
-        bandwidth = float(match.group(4))
-
-        results_file.write(f"Duration: {duration} seconds\n")
-        results_file.write(f"Transferred Data: {transferred_data} MBytes\n")
-        results_file.write(f"Average Bandwidth: {bandwidth} Mbits/sec\n")
-        results_file.write(f"Direction: {'uplink'}\n")
-
-    print(result)
-
-def create_linear_topology():
-    # Creating an instance of the linear topology defined at the start
-    topo = LinearTopology()
-
-    # Starting the Mininet network
-    net = Mininet(topo)
-
-    # Starting the network
+def start_experiment():
+    topo = SimpleTopology()
+    net = Mininet(topo=topo, controller=OVSController)
     net.start()
 
-    # Defining the number of parallel flows(this can be changed)
-    num_flows = 2  # Adjusted to have a second flow
+    # Start the continuous flow
+    threading.Thread(target=run_continuous_flow, args=(net,)).start()
 
-    # Opening results file
-    with open('five_flows_data', 'a') as results_file:
+    # Start the temporary flow
+    threading.Thread(target=run_temporary_flow, args=(net,)).start()
 
-        # Configurations for each flow: duration and start delay
-        flow_configs = [(10, 0), (5, 5)]  # (duration, start_delay)
+    # Start random smaller flows
+    threading.Thread(target=run_random_flows, args=(net,)).start()
 
-        intervals = [0.5]  # intervals at which data is captured for each duration e.g at 0.5Sec for a duration of 10
-        num_runs = 3  # number or repetitions for which the iperf is run for each duration
-
-        for duration, interval in zip([10], intervals):  # Use the longest duration for the overall test loop
-            for j in range(num_runs):
-                # Starting the iperf servers on host 2 for each flow
-                servers = []
-                for flow_id in range(num_flows):
-                    server_port = 5000 + flow_id
-                    server = net.get('h2').popen(f'iperf -s -p {server_port}')
-                    servers.append(server)
-                    time.sleep(1)
-
-                # Getting the IP address of h2
-                h2_ip = net.get('h2').IP()
-
-                # Creating and starting threads for running iperf flows in parallel with specific timings
-                threads = []
-                for flow_id in range(num_flows):
-                    server_port = 5000 + flow_id
-                    flow_duration, start_delay = flow_configs[flow_id]
-                    # Set bandwidth per flow requirement
-                    bandwidth = '20m' if flow_id == 1 else '10m'
-                    thread = threading.Thread(target=run_iperf_flow, args=(net.get('h1'), h2_ip, server_port, flow_duration, interval, results_file, bandwidth))
-                    thread.start()
-                    threads.append(thread)
-
-                # Waiting for all threads to finish
-                for thread in threads:
-                    thread.join()
-
-                # Stopping the iperf servers
-                for server in servers:
-                    server.terminate()
-
-            results_file.write(f"End of {duration} seconds run\n")
-            results_file.write("-----\n")
-
-    # Opening the Mininet command line interface
-    CLI(net)
-    # Stopping the network once the CLI is closed
+    time.sleep(60)  # Run the network for 60 seconds or as needed
+    CLI(net)  # Optional: can start CLI for interactive commands
     net.stop()
 
 if __name__ == '__main__':
     setLogLevel('info')
-    create_linear_topology()
+    start_experiment()

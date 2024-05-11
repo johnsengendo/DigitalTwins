@@ -68,14 +68,14 @@ def create_linear_topology():
     net.start()
 
     # Defining the number of parallel flows(this can be changed)
-    num_flows = 5
+    num_flows = 3
 
     # Opening results file
     with open('five_flows_data', 'a') as results_file:
 
-        durations = [10, 20, 30, 40, 50, 60] #  durations over which iperf is run
-        intervals = [ 0.5, 1, 1.5, 2, 2.5, 3] # intervals at which data is captured for each duration e.g at 0.5Sec for a duration of 10
-        num_runs = 7 # number or repetitions for which the iperf is run for each duration
+        durations = [10] #  durations over which iperf is run
+        intervals = [ 0.5] # intervals at which data is captured for each duration e.g at 0.5Sec for a duration of 10
+        num_runs = 1 # number or repetitions for which the iperf is run for each duration
 
         for duration, interval in zip(durations, intervals):
             for j in range(num_runs):

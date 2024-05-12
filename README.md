@@ -17,13 +17,13 @@ The repository has python scripts used to set-up network topologies in Comnetsem
 In this section, I demonstrate how to integrate a PID to aids in improving transferred traffic predictions made by an LSTM model.
 ![PID](https://github.com/johnsengendo/DigitalTwins/blob/main/PID_Integration.png)
 
-In the fisrst senario, two nodes are simulated to communicate as BW is increased gradually. The note books below demostrate how we can improve predictiond with a PID.
-- Predictions 1 Second ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(1Seconds_ahead)_with_PID_Integration.ipynb)
-- Predictions 10 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(10Seconds_ahead)_with_PID_Integration.ipynb)
-- Predictions 60 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(60Seconds_ahead)_with_PID_Integration.ipynb)
+In the fiRST senario, two nodes are simulated to communicate as BW is increased gradually. The note books below demostrate how we can improve predictiond with a PID.
+- Predictions 1 Second ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(1Seconds_ahead)_with_PID_Integration.ipynb)
+- Predictions 10 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(10Seconds_ahead)_with_PID_Integration.ipynb)
+- Predictions 60 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(60Seconds_ahead)_with_PID_Integration.ipynb)
 
 Here in the second senario below shows how we integrate the PID for predicting transfered traffic afew seconds ahead in a senario of varying durations of transmission between nodes.
-- Predictions 1 Second ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_1second_ahead_PID_(window_size%3D1).ipynb)
-- Predictions 10 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_10seconds_ahead_PID_(window_size%3D1).ipynb)
-- Predictions 60 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_60seconds_ahead_PID_(window_size%3D1).ipynb)
+- Predictions 1 Second ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_1second_ahead_PID_(window_size%3D1).ipynb)
+- Predictions 10 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_10seconds_ahead_PID_(window_size%3D1).ipynb)
+- Predictions 60 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_60seconds_ahead_PID_(window_size%3D1).ipynb)
 ![Linear topology](https://github.com/johnsengendo/DigitalTwins/blob/main/Network_setup.png)

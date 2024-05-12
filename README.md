@@ -1,8 +1,9 @@
 # DigitalTwins
-The repository has python scripts used to set-up network topologies in Comnetsemu and python notebooks to build traffic prediction models. <br> Below is a breakdown of the scripts to sep-up topologies and different scenario.
- - The [Linear_topology](https://github.com/johnsengendo/DigitalTwins/blob/main/linear_topology.py) python script creates a linear topology in Mininet with two nodes and two switches in between, and in it, I simulate traffic 
+The repository has python scripts used to set-up network topologies in ComNetsEmu and python notebooks to build traffic prediction models. <br> Below is the topology setup and a description of different scenario.
+![Linear topology](https://github.com/johnsengendo/DigitalTwins/blob/main/Network_setup.png)
+ - The [Linear_topology](https://github.com/johnsengendo/DigitalTwins/blob/main/linear_topology.py) python script creates a linear topology shown above in Mininet with two nodes and two switches in between, and in it, I simulate traffic 
    transmissions using iperf that run for varying durations of 10 seconds, 20 seconds, 30 seconds, 40 seconds, 50 seconds, and 60 seconds.
- - The [multiple_flows](https://github.com/johnsengendo/DigitalTwins/blob/main/multiple_flows.py) script creates a scenario where we have mutiple flows in the network of two nodes communicating to each other. In it, I increase the 
+ - The [multiple_flows](https://github.com/johnsengendo/DigitalTwins/blob/main/multiple_flows.py) script creates a scenario using the same topology above where we have mutiple flows in the network of two nodes communicating to each other. In it, I increase the 
    number of flows between the two nodes from one flow to five flows. And these flows run simultaneously. For example we can simulate two flows to run simultaneously, three flows, up to five flows, which can also be increased futher to 
    more flows.
  - The [increasing_BW](https://github.com/johnsengendo/DigitalTwins/blob/main/increasing_BW.py) script crates a scenario where the bandwidth is gradually increased from 0MBps by a factor of 10 until 1500Mbps. So as signal trasmission 
@@ -26,4 +27,3 @@ Here in the second senario below shows how we integrate the PID for predicting t
 - Predictions 1 Second ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_1second_ahead_PID_(window_size%3D1).ipynb)
 - Predictions 10 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_10seconds_ahead_PID_(window_size%3D1).ipynb)
 - Predictions 60 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_60seconds_ahead_PID_(window_size%3D1).ipynb)
-![Linear topology](https://github.com/johnsengendo/DigitalTwins/blob/main/Network_setup.png)

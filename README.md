@@ -17,7 +17,7 @@ The repository has python scripts used to set-up network topologies in Comnetsem
 In this section, I demonstrate how to integrate a PID to aids in improving transferred traffic predictions made by an LSTM model.
 ![PID](https://github.com/johnsengendo/DigitalTwins/blob/main/PID_Integration.png)
 
-In the fiRST senario, two nodes are simulated to communicate as BW is increased gradually. The note books below demostrate how we can improve predictiond with a PID.
+In the first senario, two nodes are simulated to communicate as BW is increased gradually. The note books below demostrate how we can improve predictiond with a PID.
 - Predictions 1 Second ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(1Seconds_ahead)_with_PID_Integration.ipynb)
 - Predictions 10 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(10Seconds_ahead)_with_PID_Integration.ipynb)
 - Predictions 60 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(60Seconds_ahead)_with_PID_Integration.ipynb)

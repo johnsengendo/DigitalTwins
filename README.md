@@ -13,8 +13,10 @@ The repository has python scripts used to set-up network topologies in Comnetsem
 - These prediction models [Window_size = 1](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_LSTM_model(Window_size_%3D1).ipynb), [Window_size = 6](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_LSTM_model(Window_size_%3D6).ipynb), [Window_size = 10](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_LSTM_model(Window_size_%3D10).ipynb) which consider the senario of increasing BW between two nodes communicating to each other demonstrate how the varying window size affects the accuracy of predicting the future, which is a key aspect in achieving synchronization digital twins.
 - [Window_size = 1](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_4seconds_ahead_(window_size%3D1).ipynb) , [Window_size = 10](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_4seconds_ahead_(window_size%3D10).ipynb) , [Window_size = 20](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_4seconds_ahead_(window_size%3D20).ipynb) These as well demonstrate how the window size can affect the prediction. They take into the consideration of an iperf  run for different durations(10seconds, 20Seconds, 30Seconds, 40Seconds, 50Seconds & 60Seconds) when the nodes are communicating between themselves. I provide a brief summary [here](https://github.com/johnsengendo/DigitalTwins/blob/main/Summary%20results%20of%20Window_size%20effect.pdf)
 
-PID Integration:<br>
-In this section, I demonstrate how we integrate a PID that aids in improving transferred traffic predictions made by an LSTM model.
+**PID Integration:**<br>
+In this section, I demonstrate how to integrate a PID to aids in improving transferred traffic predictions made by an LSTM model.
+![PID](https://github.com/johnsengendo/DigitalTwins/blob/main/PID_Integration.png)
+
 In the fisrst senario, two nodes are simulated to communicate as BW is increased gradually. The note books below demostrate how we can improve predictiond with a PID.
 - Predictions 1 Second ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(1Seconds_ahead)_with_PID_Integration.ipynb)
 - Predictions 10 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(10Seconds_ahead)_with_PID_Integration.ipynb)

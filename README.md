@@ -15,9 +15,12 @@ The repository has python scripts used to set-up network topologies in Comnetsem
 
 PID Integration:<br>
 In this section, I demonstrate how we integrate a PID that aids in improving transferred traffic predictions made by an LSTM model.
-In the fisrst senario, two nodes are simulated to communicate as BW is increased gradually[Notebook one]
+In the fisrst senario, two nodes are simulated to communicate as BW is increased gradually. The note books below demostrate how we can improve predictiond with a PID.
+- Predictions 1 Second ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(1Seconds_ahead)_with_PID_Integration.ipynb)
+- Predictions 10 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(10Seconds_ahead)_with_PID_Integration.ipynb)
+- Predictions 60 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(60Seconds_ahead)_with_PID_Integration.ipynb)
 
-Here in the note books below show how the we integrate the PID for predicting transfered traffic afew seconds ahead in a senario of varying durations of transmission between nodes.
+Here in the second senario below shows how we integrate the PID for predicting transfered traffic afew seconds ahead in a senario of varying durations of transmission between nodes.
 - Predictions 1 Second ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_1second_ahead_PID_(window_size%3D1).ipynb)
 - Predictions 10 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_10seconds_ahead_PID_(window_size%3D1).ipynb)
 - Predictions 60 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_60seconds_ahead_PID_(window_size%3D1).ipynb)

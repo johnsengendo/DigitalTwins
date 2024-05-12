@@ -18,7 +18,7 @@ In this section, I demonstrate how we integrate a PID that aids in improving tra
 I present three notebooks. [Notebook one](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(10Seconds_ahead)_with_PID_Integration.ipynb), showing how we use the PID to improve predictions of one second into the future. [Notebook two](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(10Seconds_ahead)_with_PID_Integration.ipynb), showing how the PID improves our predictions 10 seconds in the future. And [notebook three](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model(60Seconds_ahead)_with_PID_Integration.ipynb), showing how as well the PID can improve predictions of the transferred traffic one minute into the future. In this case, I condider the topology below where I capture the transferred traffic and the throughput between two nodes as the bandwidth is increased gradually.
 
 Here in the node books below show how the we integrate the PID for predicting transfered traffic afew seconds ahead in a senario of varying durations of transmission between nodes.
-- Predictions 1 Second ahead 
-- Predictions 10 Seconds ahead
-- Predictions 60 Seconds ahead
+- Predictions 1 Second ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_1second_ahead_PID_(window_size%3D1).ipynb)
+- Predictions 10 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_10seconds_ahead_PID_(window_size%3D1).ipynb)
+- Predictions 60 Seconds ahead [notebook](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_60seconds_ahead_PID_(window_size%3D1).ipynb)
 ![Linear topology](https://github.com/johnsengendo/DigitalTwins/blob/main/Network_setup.png)

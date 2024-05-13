@@ -28,7 +28,7 @@ Here in the second senario, the duration of trasmission between the nodes is var
 - Predictions 10 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_10seconds_ahead_PID_(window_size%3D1).ipynb)
 - Predictions 60 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_single_flow_60seconds_ahead_PID_(window_size%3D1).ipynb)
 
-Here in the third senario, we emulate a very noisy senario where two simultaneous flows are initiated between the nodes and a 5% packet loss is introduced in the link connecting the 2 switches. Below are models showing how we integrate the PID to improve transfered traffic predictions afew seconds ahead.
+Here in the third senario, a very noisy senario is emulated where two simultaneous flows are initiated between the nodes and a 5% packet loss is introduced in the link connecting the 2 switches. Below are models showing how we integrate the PID to improve transfered traffic predictions afew seconds ahead.
 - Predictions 1 Second ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model_for_noisy_senario_with_PID_Integration_(1seconds_ahead).ipynb)
 - Predictions 10 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model_for_noisy_senario_with_PID_Integration_(10seconds_ahead).ipynb)
 - Predictions 60 Seconds ahead [note book](https://github.com/johnsengendo/DigitalTwins/blob/main/Prediction_Model_for%20noisy_senario_with_PID_Integration_(60seconds_ahead).ipynb)

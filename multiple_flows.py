@@ -68,7 +68,7 @@ def create_linear_topology():
     net.start()
 
     # Defining the number of parallel flows(this can be changed)
-    num_flows = 1
+    num_flows = 5
 
     # Opening results file
     with open('five_flows_data', 'a') as results_file:

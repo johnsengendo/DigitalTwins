@@ -74,7 +74,7 @@ def create_linear_topology():
                 threads = []
                 for flow_id in range(num_flows):
                     server_port = 5000 + flow_id
-                    bandwidth = "0" if flow_id < 4 else "10m"  # Four flows with zero bandwidth
+                    bandwidth = "0m" if flow_id < 4 else "10m"  # Four flows with zero bandwidth
                     thread = threading.Thread(target=run_iperf_flow, args=(net.get('h1'), h2_ip, server_port, duration, interval, results_file, bandwidth))
                     thread.start()
                     threads.append(thread)

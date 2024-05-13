@@ -15,7 +15,7 @@ The repository has python scripts used to set-up network topologies in ComNetsEm
 - [Window_size = 1](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_4seconds_ahead_(window_size%3D1).ipynb) , [Window_size = 10](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_4seconds_ahead_(window_size%3D10).ipynb) , [Window_size = 20](https://github.com/johnsengendo/DigitalTwins/blob/main/Trafic_prediction_4seconds_ahead_(window_size%3D20).ipynb) These as well demonstrate how the window size can affect the prediction. They take into the consideration of an iperf  run for different durations(10seconds, 20Seconds, 30Seconds, 40Seconds, 50Seconds & 60Seconds) when the nodes are communicating between themselves. I provide a brief summary [here](https://github.com/johnsengendo/DigitalTwins/blob/main/Summary%20results%20of%20Window_size%20effect.pdf)
 
 **PID Integration:**<br>
-In this section, I demonstrate how to integrate a PID to aids in improving transferred traffic predictions made by an LSTM model.
+In this section, I demonstrate how to integrate a PID to improve predictions made by models which is a key aspect in Digital Twins synchronization.  This is achieved by using predictions made by an LSTM model.
 ![PID](https://github.com/johnsengendo/DigitalTwins/blob/main/PID_Integration.png)
 
 In the first senario, two nodes are simulated to communicate as BW is increased gradually. The models (note books) below demostrate how we can improve predictiond with a PID.

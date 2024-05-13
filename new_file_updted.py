@@ -23,7 +23,7 @@ class LinearTopology(Topo):
 
 def run_iperf_flow(h1, h2_ip, server_port, duration, interval, results_file, bandwidth="10m"):
     result_file = f"/tmp/iperf_flow_{server_port}.txt"
-    h1.popen(f'iperf -c {h2_ip} -p {server_port} -i {interval} -t {duration} -b {bandwidth} -d > {result_file}', shell=True)
+    h1.popen(f'iperf -c {h2_ip} -p {server_port} -i {interval} -t {duration} -b {bandwidth} > {result_file}', shell=True)
     time.sleep(duration + 1)  # Waiting for the iperf process to finish
 
     with open(result_file, 'r') as f:

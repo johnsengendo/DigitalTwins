@@ -53,7 +53,7 @@ def create_linear_topology():
 
     num_flows = 5
 
-    with open('five_flows_data', 'a') as results_file:
+    with open('five_flows_data_updated', 'a') as results_file:
         durations = [10]
         intervals = [0.5]
         num_runs = 3
